@@ -3,10 +3,12 @@
 
 
 let bl = document.querySelector('.bl');
-
+let load = document.querySelector('.load');
 
 
 bl.addEventListener("click",async ()=>{
+	load.classList.toggle('hidden');
+
 
   let i1 = document.querySelector(".i1").value;
   let i2 = document.querySelector(".i2").value;
@@ -47,10 +49,20 @@ let h4 = document.querySelector('h4');
 let love = document.querySelector('.love');
 let sug = document.querySelector('.sug');
 let n1 = document.querySelector('.n1');
+let cross = document.querySelector('.cross');
+
+cross.addEventListener('click',()=>{
+	n1.classList.add('hidden');
+	document.querySelector(".i1").value= "";
+	document.querySelector(".i2").value= "";
+
+})
 
 let show = (results)=>{
 
 let result = JSON.parse(results);
+
+load.classList.toggle('hidden');
 
 if(result.sname=="" || result.fname==""){
   alert("please enter some name");
@@ -63,7 +75,6 @@ if(result.sname.length <=5 || result.fname.length<=5){
 	return;
   }
   
-
 
 n1.classList.remove("hidden");
 
